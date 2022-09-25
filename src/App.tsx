@@ -1,15 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Outlet } from "react-router";
-import { testConcatMap } from "./utils";
+import { Notification } from "./components/Notification";
+import { notification } from "./utils";
+import { useAlert } from "./hooks";
 
 function App() {
-  useEffect(() => {
-    console.log("useEffect");
-    testConcatMap().subscribe((data) => console.log(data));
-  }, []);
+  const notif = useAlert();
   return (
     <div>
       <Outlet />
+      <input />
+      <button onClick={() => notification.sendSuccess("loo")}>
+        Send Success
+      </button>
+      <button onClick={() => notification.sendError("loo")}>Send Error</button>
+      {notif && <Notification type={notif.type} message={notif.message} />}
     </div>
   );
 }

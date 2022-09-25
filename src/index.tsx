@@ -14,8 +14,8 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="ridvan" element={<div>loo</div>} />
-          <Route path="*" element={<App />} />
         </Route>
+        <Route path="*" element={<App />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
